@@ -4,7 +4,7 @@
   人脸识别项目，提供一个小型数据集用作验证，使用三元组损失函数提升准确率和泛化能力，对FaceNet进行了一种实现。提供了一个小型的人脸数据集用于测试和验证。总共62个人，每人20张人脸图像。
 </br> </br>
 ## Checkpoints
-[断点链接](https://pan.baidu.com/s/1oeb3Bway3zAS1nG2gcCjHA)
+[断点模型链接](https://pan.baidu.com/s/1oeb3Bway3zAS1nG2gcCjHA)
 </br>
 ## Dependencies(依赖模块)
     python3, pytorch, torchvision, opencv-python, numpy, tqdm. etc.
