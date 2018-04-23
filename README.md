@@ -9,7 +9,7 @@ Face recognition using triplet loss, implementing FaceNet with pytorch.(人脸�
     utils.py
 ### main module in charge of model definition, data/checkpoint loading, training, testing and validation.(主功能模块负责模型定义，数据、断点加载，训练，测试和验证。)
     main.py
-## 脚本运行效果截图：(测试的视频是薛之谦的《演员》mv)-
-![](https://github.com/CaptainEven/VideoCaption/blob/master/screen%20shots/result.png)
+## 脚本运行效果截图：
+![](https://github.com/CaptainEven/Face-recognition-/blob/master/train.png)
 </br>
 
