@@ -23,3 +23,4 @@
   Inspired by Google's FaceNet, we design a special loss to improve the model's descriminative power for fine-grained classification task   like face recognition. The basic principle is quite plain and simple: if a group face images belong to one person identity, they are definitelt closer to each other than image faces belonging to other person's identity. Its main thought is similar to clusting algorithm.
 </br>
   受谷歌FaceNet的启发，我们设计了一种特殊的损失函数(类似于三元组损失函数)，用来提升细粒度分类任务的性能，比如人脸识别任务。它的基本思想简单而朴素，如果一组人脸图像属于同一个人，那么这些图像相比其他人的人脸图像，他们之间肯定会更近似彼此。这个思想类似于聚类。
+![](https://github.com/CaptainEven/Face-recognition-/blob/master/description.png)
