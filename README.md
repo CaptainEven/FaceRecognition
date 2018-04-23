@@ -1,5 +1,7 @@
 # Face recognition
-Face recognition using triplet loss, implementing FaceNet with pytorch.(人脸识别项目，提供一个小型数据集用作验证，使用三元组损失函数提升准确率和泛化能力，对FaceNet进行了一种实现。)
+  Face recognition using triplet loss, implementing FaceNet with pytorch. A small face dataset which consists of 62 IDs with 20 face images per ID for testing. The algorithm achieves accuracy aboe 95%.
+</br>
+  人脸识别项目，提供一个小型数据集用作验证，使用三元组损失函数提升准确率和泛化能力，对FaceNet进行了一种实现。提供了一个小型的人脸数据集用于测试和验证。总共62个人，每人20张人脸图像。
 </br> </br>
 
 ## Dependencies(依赖模块)
