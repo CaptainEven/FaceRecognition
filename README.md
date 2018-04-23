@@ -4,7 +4,10 @@ Face recognition using triplet loss, implementing FaceNet with pytorch.(人脸�
 
 ## Module components(模块组成)
 ### dataset module taking care of triplet selection and data loding.(数据集模块主要负责三元组选择和数据加载)
-</br></t>dataset.py
-### utilities module taking care of image data formating, cleaning, and organization.（工具模块负责人脸数据的格式转换，数据清洗和数据组织）
-</br></t>utils.py
+    dataset.py
+### utility module taking care of image data formating, cleaning, and organization.（工具模块负责人脸数据的格式转换，数据清洗和数据组织）
+    utils.py
+### main module in charge of model definition, data/checkpoint loading, training, testing and validation.(主功能模块负责模型定义，数据、断点加载，训练，测试和验证。)
+    main.py
+    
 
