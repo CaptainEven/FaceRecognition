@@ -7,7 +7,7 @@
 [断点模型链接](https://pan.baidu.com/s/1FXffkWIU-lBOFgshwW7QaA)
 </br>
 ## Dependencies(依赖模块)
-    python3, pytorch, torchvision, opencv-python, numpy, tqdm. etc.
+    python3, pytorch, torchvision, cnn_finetune, opencv-python, numpy, tqdm. etc.
 ## Module components(模块组成)
 ### dataset module taking care of triplet selection and data loding.(数据集模块主要负责三元组选择和数据加载)
     dataset.py
