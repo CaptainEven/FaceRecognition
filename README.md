@@ -25,4 +25,5 @@
   受谷歌FaceNet的启发，我们设计了一种特殊的损失函数(类似于三元组损失函数)，用来提升细粒度分类任务的性能，比如人脸识别任务。它的基本思想简单而朴素，如果一组人脸图像属于同一个人，那么这些图像相比其他人的人脸图像，他们之间肯定会更近似彼此。这个思想类似于聚类。
  </br>
 ![](https://github.com/CaptainEven/Face-recognition-/blob/master/description.png)
->> After learning using a joint loss of classification and triplet loss, the model is more able to discriminate between different ID's faces as illustrated above.
+>> We take advantage of a joint loss of classification and triplet loss to make the training convergence more easily and stable, the model is more able to discriminate between different ID's faces as illustrated above.
+>> 本算法在FaceNet的基础上改进了loss函数表达式，采用联合损失函数：CrossEntropy分类损失 + triplet损失，加快训练收敛并使得训练过程更稳定。
