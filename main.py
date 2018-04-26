@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -13,7 +14,6 @@ from PIL import Image
 from collections import defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
-import re
 
 
 def test_triplet():
@@ -27,7 +27,7 @@ def test_triplet():
                         help='input batch size for testing (default: 64)')
     parser.add_argument('--epochs', type=int, default=5, metavar='N',
                         help='number of epochs to train (default: 100)')
-    parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.005, metavar='LR',
                         help='learning rate (default: 0.01)')
     parser.add_argument('--momentum', type=float, default=0.9, metavar='M',
                         help='SGD momentum (default: 0.9)')
@@ -61,12 +61,10 @@ def test_triplet():
             re.match(r'epoch_(\d+)\.pth', checkpoints[0]).group(1))
         print('[resume from model, model id: %d]' % LATEST_MODEL_ID)
     else:  # 从训练好的模型加载
-        model = make_model(
-            args.model_name,
-            pretrained=True,
-            num_classes=62,
-            dropout_p=args.dropout_p,
-        )
+        model = make_model(args.model_name,
+                           pretrained=True,
+                           num_classes=62,
+                           dropout_p=args.dropout_p)
     # print('model:\n', model)
 
     if args.cuda:
@@ -83,24 +81,27 @@ def test_triplet():
     ])
 
     # ----------------------加载训练数据集
-    train_set = dataset.Triplet(args.train_set,
-                                num_cls=62,  # 62
-                                num_tripets=8000,
-                                limit=20,  # 20
-                                transforms=transform,
-                                train=True,
-                                test=False)
+    # train_set = dataset.Triplet(args.train_set,
+    #                             num_cls=62,  # 62
+    #                             num_tripets=8000,
+    #                             limit=20,  # 20
+    #                             transforms=transform,
+    #                             train=True,
+    #                             test=False)
+    train_set = dataset.Hard_Triplet(args.train_set,
+                                     'checkpoints/epoch_35.pth') # 先人为指定...
     train_loader = torch.utils.data.DataLoader(train_set,
                                                batch_size=args.batch_size,
                                                shuffle=True,
-                                               num_workers=4)
+                                               num_workers=2)
 
     # ----------------------加载测试数据集
-    test_set = dataset.FACE_LFW(args.train_set, transforms=transform, test=True)
+    test_set = dataset.FACE_LFW(
+        args.train_set, transforms=transform, NUM_PER_CLS=20)
     test_loader = torch.utils.data.DataLoader(test_set,
                                               args.test_batch_size,
                                               shuffle=False,
-                                              num_workers=4)
+                                              num_workers=2)
 
     # ----------------------可视化训练数据
     def imshow(img, title=None):
@@ -230,8 +231,6 @@ def test_triplet():
         validate(args.check_path)
 
 # ----------------------验证数据集
-
-
 def validate(check_path):
     if not os.path.exists(check_path):
         print('Error: invalid checkpoints path.')
@@ -261,8 +260,6 @@ def validate(check_path):
     # 加载数据
     valid_set = dataset.FACE_LFW('validate_set',
                                  transforms=transform,
-                                 train=False,
-                                 test=True,
                                  NUM_PER_CLS=10)
     valid_loader = torch.utils.data.DataLoader(valid_set,
                                                4,
@@ -291,7 +288,7 @@ def validate(check_path):
 
 if __name__ == '__main__':
     test_triplet()
-    validate('checkpoints')
+    # validate('checkpoints')
     # validate('resnet_checkpoints')
     # validate_statics('checkpoints')
 
