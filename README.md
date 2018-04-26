@@ -26,4 +26,5 @@
  </br>
 ![](https://github.com/CaptainEven/Face-recognition-/blob/master/description.png)
 >> We take advantage of a joint loss of classification and triplet loss to make the training convergence more easily and stable, the model is more able to discriminate between different ID's faces as illustrated above.
+</br>
 >> 本算法在FaceNet的基础上改进了loss函数表达式，采用联合损失函数：CrossEntropy分类损失 + triplet损失，加快训练收敛并使得训练过程更稳定。
