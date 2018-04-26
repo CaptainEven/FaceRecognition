@@ -16,7 +16,7 @@
 ### main module in charge of model definition, data/checkpoint loading, training, testing and validation.(主功能模块负责模型定义，数据、断点加载，训练，测试和验证。)
     main.py
 ## 脚本运行效果截图：
-![](https://github.com/CaptainEven/Face-recognition-/blob/master/train.png)
+![](https://github.com/CaptainEven/FaceRecognition/blob/master/training.png)
 </br>
 
 ## Algorithm description(算法说明)
